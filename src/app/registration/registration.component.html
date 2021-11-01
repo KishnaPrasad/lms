@@ -1,0 +1,23 @@
+<section class="login-block">
+<div class="container">
+    <h2 class="text-center">Register User</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" formControlName="username" placeholder="Email" name="username" class="form-control" id="username">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+      </div>
+  
+      <div class="form-group" style="padding-bottom: 2%;">
+        <label for="firstName">Name:</label>
+        <input formControlName="firstName" placeholder="Name" name="firstName" class="form-control" id="firstName">
+      </div>
+  
+      <button class="btn btn-success" >Add User</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+
+ <section class="login-block">
+<div class="container">
+  <!-- <nav class="navbar navbar-light bg-light">  -->
+    <!-- <div class="container-fluid float-right"> -->
+      <div class="row">
+      <div class="search-hero pad">
+        <input class="form-control se" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a Book">
+      </div>
+    </div>
+  <!-- </nav>  -->
+    <table class="table table-striped table-light">
+      <thead class="table-dark">
+        <tr>
+          <th>Book E-code</th>
+          <th>Title</th>
+          <th>Cover</th>
+          <th>Author</th>
+          <th>No of Pages</th>
+          <th>No of Books Available</th>
+          <th>Shelf No</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let b of books | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td>{{b.isbn}}</td>
+          <td>{{b.title}}</td>
+          <td>{{b.cover}}</td>
+          <td>{{b.publisher}}</td>
+          <td>{{b.pages}}</td>
+          <td>{{b.available}}</td>
+          <td>{{b.shelfId}}</td>
+          
+          
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+  </div>
+</section>   
+

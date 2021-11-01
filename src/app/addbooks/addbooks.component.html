@@ -1,0 +1,60 @@
+
+ <section class="login-block">
+<div class="container" style="padding-top: 3%;">
+    <form #addForm="ngForm" (ngSubmit)="onAddBooks(addForm)">
+    <table class="table table-striped table-light table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Opion</th>
+                <th>Book E-code</th>
+                <th>Title</th>
+                <th>Cover</th>
+                <th>Author</th>
+                <th>No of Pages</th>
+                <th>No of Books Available</th>
+                <th>Shelf No.</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let dynamic of dynamicArray; let i = index;">
+                <td >
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteRow(i)">Delete Record</button>
+                    <!-- <i class="fa fa-trash fa-2x"></i> -->
+                    <!-- <i class="fa fa-trash fa-4x" style="color:green"></i> -->
+                </td>
+                
+                <td>
+                    <input [(ngModel)]="dynamic.isbn" class="form-control" name="isbn{{i}}" type="text" />
+                </td>
+                <td>
+                    <input [(ngModel)]="dynamic.title" class="form-control" name="title{{i}}" type="text" />
+                </td>
+                <td>
+                    <input [(ngModel)]="dynamic.cover" class="form-control" name="cover{{i}}" type="text" />
+                </td>
+                <td>
+                    <input [(ngModel)]="dynamic.publisher" class="form-control" name="publisher{{i}}" type="text" />
+                </td>
+                <td>
+                    <input [(ngModel)]="dynamic.pages" class="form-control" name="pages{{i}}" type="number" />
+                </td>
+                <td>
+                    <input [(ngModel)]="dynamic.available" class="form-control" name="available{{i}}" type="number" />
+                </td>
+                <td>
+                    <input [(ngModel)]="dynamic.shelfId" class="form-control" name="shelfId{{i}}" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <button type="button" class="btn btn-outline-primary" (click)="addRow()">Add Record</button>
+                    <button type="submit" id="add-book-form" class="btn btn-outline-success" style="margin-left: 2%;">Submit</button>
+                </td>
+            </tr>
+        
+        </tbody>
+    </table>
+</form>
+</div>
+</section>
